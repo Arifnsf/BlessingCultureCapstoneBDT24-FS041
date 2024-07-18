@@ -1,6 +1,7 @@
 Baparekraf Digital Talent (BDT) Web Development Bootcamp 2024
 
 Capstone Project
+Team ID			: BDT24-FS041
 Project Team Members:
 1. D2024Y026 - Mohammad Robi - Universitas Adhirajasa Reswara Sanjaya
 2. D2024Y040 - Rian Abdillah - Universitas Islam Nusantara
