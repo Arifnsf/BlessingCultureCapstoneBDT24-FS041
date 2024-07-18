@@ -26,13 +26,15 @@ if (!isset($_SESSION['username'])) {
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Wisata</title>
+  <title>Blessing Culture</title>
   <link rel="shortcut icon" href="assets/images/logoBC.png" type="image/svg" />
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/css/lineicons.css" />
   <link rel="stylesheet" href="assets/style.css" />
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
 </head>
 
 <body>
@@ -53,14 +55,16 @@ if (!isset($_SESSION['username'])) {
             <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="main.php">Home</a>
+                  <a class="nav-link" href="main.php" tabindex="1">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="seni.php">Daftar Kesenian</a>
+                  <a class="nav-link" href="seni.php" tabindex="2">Daftar Kesenian</a>
                 </li>
-
                 <li class="nav-item">
-                  <a class="nav-link" href="pesan.php">Pesan Sekarang!</a>
+                  <a class="nav-link" href="pesan.php" tabindex="3">Pesan Sekarang!</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../logout.php" tabindex="4">Keluar?</a>
                 </li>
               </ul>
               <style>
@@ -77,20 +81,21 @@ if (!isset($_SESSION['username'])) {
                 }
               </style>
 
-              <ul class="navbar-nav ms-auto me-md-4 mb-2 mb-lg-0">
+              <ul class="navbar-nav ms-auto me-md-4 mb-2 mb-lg-0 navbar-nav-mobile">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <li class="nav-item dropdown d-flex text-light">
                     <div class="dropdown">
-                      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" tabindex="7">
                         Hi <?php echo $_SESSION['username']; ?>!
                         <i class="fa-regular fa-user"></i>
                       </button>
                       <ul class="dropdown-menu border-0 bg-gradient-dark text-black" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="../admin/user.php">Edit Profile</a></li>
-                        <li><a class="dropdown-item" href="../logout.php">Logout</a></li>
+                        <li><a class="dropdown-item" href="../admin/user.php" tabindex="5">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="../logout.php" tabindex="6">Logout</a></li>
                       </ul>
                     </div>
                   </li>
+                </div>
               </ul>
             </div>
 
@@ -152,7 +157,7 @@ if (!isset($_SESSION['username'])) {
     </div>
   </section>
 
-  <div id="map-container"> 
+  <div id="map-container">
     <h2>Daftar Lokasi Kesenian</h2>
   </div>
   <div id="map" style="width: 550px; height: 450px"></div>
@@ -166,7 +171,7 @@ if (!isset($_SESSION['username'])) {
     var map = new L.map('map', mapOptions);
 
     // Menambahkan lapisan ubin dari OpenStreetMap
-    var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    var layer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
     map.addLayer(layer);
 
     // Daftar koordinat lokasi dan nama tempat
@@ -193,6 +198,10 @@ if (!isset($_SESSION['username'])) {
       {
         latlng: [-6.238981, 107.060357],
         name: "Sanggar SENI REYOG PONOROGO"
+      },
+      {
+        latlng: [-6.909886, 107.649769],
+        name: "Blessing Culture"
       }
     ];
 
@@ -203,42 +212,78 @@ if (!isset($_SESSION['username'])) {
     });
   </script>
   <style>
-        #map {
-            background-color: skyblue;
-            width: 550px;
-            height: 450px;
-            margin: 0 auto; 
-            border: 2px solid black; /* Menambahkan border pada peta */
-            z-index: 1;
-        }
-        #map-container {
-            width: 600px;
-            margin: 0 auto; /* Menyelaraskan div di tengah secara horizontal */
-            text-align: center; /* Menyelaraskan teks di tengah */
-        }
-    </style>
+    #map {
+      background-color: skyblue;
+      width: 100%;
+      /* Menggunakan lebar relatif agar responsif */
+      max-width: 550px;
+      /* Maksimum lebar tetap 550px */
+      height: 450px;
+      margin: 0 auto;
+      border: 2px solid black;
+      /* Menambahkan border pada peta */
+      z-index: 1;
+    }
+
+    #map-container {
+      width: 100%;
+      /* Menggunakan lebar relatif agar responsif */
+      max-width: 600px;
+      /* Maksimum lebar tetap 600px */
+      margin: 0 auto;
+      /* Menyelaraskan div di tengah secara horizontal */
+      text-align: center;
+      /* Menyelaraskan teks di tengah */
+    }
+
+    /* Media query untuk layar dengan lebar kurang dari 600px */
+    @media (max-width: 600px) {
+      #map {
+        width: 100%;
+        max-width: 100%;
+        /* Lebar maksimum mengikuti lebar parent */
+      }
+
+      #map-container {
+        width: 100%;
+        max-width: 100%;
+        /* Lebar maksimum mengikuti lebar parent */
+      }
+    }
+  </style>
+  <br><br>
 
   <!-- Footer -->
-  <footer class="footer-area footer-eleven">
-    <div class="footer-top">
-      <div class="container">
-        <div class="inner-content">
-          <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 col-12 text-center">
-              <div class="footer-widget f-about">
-                <div class="logo">
-                  <a href="index.php">
-                    <img src="assets/images/logoBC.png" alt="#" class="img-fluid" />
-                  </a>
-                </div>
-                <p class="copyright-text">
-                  <span>© 2024 Blessing Culture</span>
-                </p>
-              </div>
-            </div>
-          </div>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row px-md-3">
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Company</h5>
+          <ul class="footer-menu">
+            <li><a>About Us</a></li>
+            <li><a>Career</a></li>
+            <li><a href="front/login.php">Booking</a></li>
+            <li><a>Protection</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>More</h5>
+          <ul class="footer-menu">
+            <li><a>Terms & Condition</a></li>
+            <li><a>Privacy</a></li>
+            <li><a>Advertise</a></li>
+            <li><a href="front/login.php">Join with us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Contact</h5>
+          <p class="footer-link">Antapani, Jl. Terusan Sekolah No.1-2, Cicaheum, Kec. Kiaracondong, Kota Bandung, Jawa Barat 40282</p>
+          <a class="footer-link">088901632551 cadanallison@gmail.com</a>
+
         </div>
       </div>
+      <hr>
     </div>
   </footer>
 

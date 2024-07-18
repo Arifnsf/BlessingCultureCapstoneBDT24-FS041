@@ -7,7 +7,7 @@
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <title>Wisata</title>
+  <title>Blessing Culture</title>
   <link rel="shortcut icon" href="assets/images/logoBC.png" type="image/svg" />
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/css/lineicons.css" />
@@ -35,19 +35,19 @@
             <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
               <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                  <a class="nav-link" href="../index.php">Home</a>
+                  <a class="nav-link" href="../index.php" tabindex="0">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="login.php">Daftar Kesenian</a>
+                  <a class="nav-link" href="login.php" tabindex="0">Daftar Kesenian</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="login.php">Pesan Sekarang!</a>
+                  <a class="nav-link" href="login.php" tabindex="0">Pesan Sekarang!</a>
                 </li>
               </ul>
               <ul>
               <li class="nav-item">
-                  <button class="btn btn-light" type="button"><a href="register.php">Daftar</a></button>
+                  <button class="btn btn-light" type="button"><a href="register.php" tabindex="0">Daftar</a></button>
                 </li>
               </ul>
             </div>
@@ -88,7 +88,7 @@
                 </div>
                 <span> Belum punya akun? </span>
                   <p>
-                    Silahkan Daftar <a href="register.php"> Disini!</a> 
+                    Silahkan Daftar <a href="register.php" tabindex="0"> Disini!</a> 
                   </p>
               </div>
             </form>

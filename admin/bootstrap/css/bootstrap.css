@@ -769,6 +769,53 @@ progress {
     max-width: 1320px;
   }
 }
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-sm {
+    max-width: 540px; /* Adjust based on Bootstrap's grid system */
+  }
+}
+
+@media (min-width: 768px) {
+  .container-md {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-lg {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-xl {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-xxl {
+    max-width: 1320px;
+  }
+}
+
 .row {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
@@ -780,12 +827,40 @@ progress {
 }
 .row > * {
   flex-shrink: 0;
-  width: 100%;
-  max-width: 100%;
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-top: var(--bs-gutter-y);
 }
+
+/* Contoh media query untuk menyesuaikan responsif */
+@media (min-width: 576px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(var(--bs-gutter-x) * -0.5);
+    margin-left: calc(var(--bs-gutter-x) * -0.5);
+  }
+
+  .row > * {
+    width: 50%; /* Misalnya, 2 kolom per baris pada layar kecil */
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+  }
+}
+
+@media (min-width: 992px) {
+  .row > * {
+    width: 33.333%; /* Misalnya, 3 kolom per baris pada layar sedang */
+  }
+}
+
+@media (min-width: 1200px) {
+  .row > * {
+    width: 25%; /* Misalnya, 4 kolom per baris pada layar besar */
+  }
+}
+
 
 .col {
   flex: 1 0 0%;

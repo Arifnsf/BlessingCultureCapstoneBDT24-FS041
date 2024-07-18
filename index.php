@@ -6,12 +6,26 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wisata</title>
+  <title>Blessing Culture</title>
   <link rel="shortcut icon" href="front/assets/images/logoBC.png" type="image/svg" />
   <link rel="stylesheet" href="front/assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="front/assets/css/lineicons.css" />
   <link rel="stylesheet" href="front/assets/style.css" />
 </head>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('front/assets/js/service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered:', registration);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
 
 <body>
   <section class="navbar-area navbar-nine">
@@ -22,7 +36,7 @@
             <a class="navbar-brand" href="index.php">
               <img src="front/assets/images/logoBC.png" alt="Logo" width="100px" />
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine" aria-controls="navbarNine" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine" aria-controls="navbarNine" aria-expanded="false" aria-label="Toggle navigation" tabindex="0">
               <span class="toggler-icon"></span>
               <span class="toggler-icon"></span>
               <span class="toggler-icon"></span>
@@ -31,20 +45,18 @@
             <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="index.php">Home</a>
+                  <a class="nav-link" href="index.php" tabindex="0">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="front/login.php">Daftar Kesenian</a>
+                  <a class="nav-link" href="front/login.php" tabindex="0">Daftar Kesenian</a>
                 </li>
-
                 <li class="nav-item">
-                  <a class="nav-link" href="front/login.php">Pesan Sekarang!</a>
+                  <a class="nav-link" href="front/login.php" tabindex="0">Pesan Sekarang!</a>
                 </li>
               </ul>
-
               <ul>
                 <li class="nav-item">
-                  <button class="btn btn-light" type="button"><a href="front/login.php">Login</a></button>
+                  <button class="btn btn-light" type="button"><a href="front/login.php" tabindex="0">Login</a></button>
                 </li>
               </ul>
             </div>
@@ -80,31 +92,44 @@
     </div>
   </section>
 
-  <video id="video" autoplay src="front/assets/pb.mp4"></video>
+  <audio autoplay="true">
+    <source src="front/assets/wonderland.mp3" type="audio/mpeg">
+    Browsermu tidak mendukung tag audio, upgrade donk!
+  </audio>
 
   <!-- Footer -->
-  <footer class="footer-area footer-eleven">
-    <div class="footer-top">
-      <div class="container">
-        <div class="inner-content">
-          <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 col-12 text-center">
-              <div class="footer-widget f-about">
-                <div class="logo">
-                  <a href="index.php">
-                    <img src="front/assets/images/logoBC.png" alt="#" class="img-fluid" />
-                  </a>
-                </div>
-                <p class="copyright-text">
-                  <span>© 2024 Blessing Culture</span>
-                </p>
-              </div>
-            </div>
-          </div>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row px-md-3">
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Company</h5>
+          <ul class="footer-menu">
+            <li><a>About Us</a></li>
+            <li><a>Career</a></li>
+            <li><a href="front/login.php">Booking</a></li>
+            <li><a>Protection</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>More</h5>
+          <ul class="footer-menu">
+            <li><a>Terms & Condition</a></li>
+            <li><a>Privacy</a></li>
+            <li><a>Advertise</a></li>
+            <li><a href="front/login.php">Join with us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Contact</h5>
+          <p class="footer-link">Antapani, Jl. Terusan Sekolah No.1-2, Cicaheum, Kec. Kiaracondong, Kota Bandung, Jawa Barat 40282</p>
+          <a class="footer-link">088901632551 cadanallison@gmail.com</a>
+
         </div>
       </div>
+      <hr>
     </div>
-</footer>
+  </footer>
 
   <!-- End Footer -->
   <script src="front/assets/js/bootstrap.bundle.min.js"></script>

@@ -13,8 +13,6 @@
             header_navbar.classList.remove("sticky");
         }
 
-
-
         // show or hide the back-top-top button
         var backToTo = document.querySelector(".scroll-top");
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -25,26 +23,26 @@
     };
 
     // section menu active
-	function onScroll(event) {
-		var sections = document.querySelectorAll('.page-scroll');
-		var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    function onScroll(event) {
+        var sections = document.querySelectorAll('.page-scroll');
+        var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
-		for (var i = 0; i < sections.length; i++) {
-			var currLink = sections[i];
-			var val = currLink.getAttribute('href');
-			var refElement = document.querySelector(val);
-			var scrollTopMinus = scrollPos + 73;
-			if (refElement.offsetTop <= scrollTopMinus && (refElement.offsetTop + refElement.offsetHeight > scrollTopMinus)) {
-				document.querySelector('.page-scroll').classList.remove('active');
-				currLink.classList.add('active');
-			} else {
-				currLink.classList.remove('active');
-			}
-		}
-	};
+        sections.forEach(currLink => {
+            var val = currLink.getAttribute('href');
+            var refElement = document.querySelector(val);
+            var scrollTopMinus = scrollPos + 73;
 
-    window.document.addEventListener('scroll', onScroll);
-    
+            if (refElement.offsetTop <= scrollTopMinus && (refElement.offsetTop + refElement.offsetHeight > scrollTopMinus)) {
+                sections.forEach(link => link.classList.remove('active'));
+                currLink.classList.add('active');
+            } else {
+                currLink.classList.remove('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', onScroll);
+
     // for menu scroll 
     var pageLink = document.querySelectorAll('.page-scroll');
 
@@ -53,11 +51,22 @@
             e.preventDefault();
             document.querySelector(elem.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth',
-                offsetTop: 1 - 60,
+                block: 'start'
             });
         });
     });
 
-    "use strict";
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('../front/assets/js/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered:', registration);
+                })
+                .catch(error => {
+                    console.log('Service Worker registration failed:', error);
+                });
+        });
+    }
 
-}) ();
+})();

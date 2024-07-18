@@ -26,7 +26,7 @@ if (!isset($_SESSION['username'])) {
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Wisata</title>
+    <title>Blessing Culture</title>
     <link rel="shortcut icon" href="assets/images/logoBC.png" type="image/svg" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/lineicons.css" />
@@ -51,14 +51,16 @@ if (!isset($_SESSION['username'])) {
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="main.php">Home</a>
+                                    <a class="nav-link" href="main.php" tabindex="0">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="seni.php">Daftar Kesenian</a>
+                                    <a class="nav-link" href="seni.php" tabindex="0">Daftar Kesenian</a>
                                 </li>
-
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pesan.php">Pesan Sekarang!</a>
+                                    <a class="nav-link" href="pesan.php" tabindex="0">Pesan Sekarang!</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../logout.php" tabindex="0">Keluar?</a>
                                 </li>
                             </ul>
                             <style>
@@ -79,13 +81,13 @@ if (!isset($_SESSION['username'])) {
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <li class="nav-item dropdown d-flex text-light">
                                         <div class="dropdown">
-                                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" tabindex="0">
                                                 Hi <?php echo $_SESSION['username']; ?>!
                                                 <i class="fa-regular fa-user"></i>
                                             </button>
                                             <ul class="dropdown-menu border-0 bg-gradient-dark text-black" aria-labelledby="dropdownMenuButton">
-                                                <li><a class="nav-link" href="../admin/user.php">Edit Profile</a></li>
-                                                <li><a class="dropdown-item" href="../logout.php">Logout</a></li>
+                                                <li><a class="nav-link" href="../admin/user.php" tabindex="-1">Edit Profile</a></li>
+                                                <li><a class="dropdown-item" href="../logout.php" tabindex="-1">Logout</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -101,6 +103,7 @@ if (!isset($_SESSION['username'])) {
         </div>
     </section>
     <br><br>
+    <br><br>
 
 
 
@@ -111,8 +114,8 @@ if (!isset($_SESSION['username'])) {
                     <div class="col-12">
                         <div class="content">
                             <br><br>
-                            <h2 class="fw-bold">Harga Tiket Masuk</h2>
-                            <p>Silahkan Memilih Tiket Yang Tersedia</p>
+                            <h2 class="fw-bold">Daftar Kesenian</h2>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -201,7 +204,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-xl-8">
                     <div class="contact-form-wrapper">
                         <div class="row">
@@ -212,7 +215,7 @@ if (!isset($_SESSION['username'])) {
                                         Booking Hiburanmu Sekarang!
                                     </h2>
                                     <p>
-                                    Jangan Lewatkan Pengalaman Memukau Kesenian Indonesia Ini!
+                                        Jangan Lewatkan Pengalaman Memukau Kesenian Indonesia Ini!
                                     </p>
                                 </div>
                             </div>
@@ -220,26 +223,26 @@ if (!isset($_SESSION['username'])) {
                         <form action="proses_book.php" method="POST" class="contact-form">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" name="nama" id="name" placeholder="Nama" required />
+                                    <input type="text" name="nama" id="name" placeholder="Nama" required tabindex="0" />
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email" id="email" placeholder="Email" required />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" name="nohp" id="phone" placeholder="No Telepon" required />
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="date" name="tgl" id="data" placeholder="Date" required />
+                                    <input type="email" name="email" id="email" placeholder="Email" required tabindex="0" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="time" name="jam" id="phone" placeholder="Jam?" required />
+                                    <input type="text" name="nohp" id="phone" placeholder="No Telepon" required tabindex="0" />
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-select" name="wisata" id="st_dept">
+                                    <input type="date" name="tgl" id="data" placeholder="Date" required tabindex="0" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="time" name="jam" id="phone" placeholder="Jam?" required tabindex="0" />
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-select" name="wisata" id="st_dept" tabindex="0">
                                         <option class="text-muted" selected disabled>Pilih Kesenian</option>
                                         <?php
 
@@ -276,27 +279,27 @@ if (!isset($_SESSION['username'])) {
 
     <!-- Footer -->
     <footer class="footer-area footer-eleven">
-    <div class="footer-top">
-      <div class="container">
-        <div class="inner-content">
-          <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 col-12 text-center">
-              <div class="footer-widget f-about">
-                <div class="logo">
-                  <a href="index.php">
-                    <img src="assets/images/logoBC.png" alt="#" class="img-fluid" />
-                  </a>
+        <div class="footer-top">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-12 text-center">
+                            <div class="footer-widget f-about">
+                                <div class="logo">
+                                    <a href="index.php">
+                                        <img src="assets/images/logoBC.png" alt="#" class="img-fluid" />
+                                    </a>
+                                </div>
+                                <p class="copyright-text">
+                                    <span>© 2024 Blessing Culture</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="copyright-text">
-                  <span>© 2024 Blessing Culture</span>
-                </p>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-</footer>
+    </footer>
     <!-- End Footer -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>

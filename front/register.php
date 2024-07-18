@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Wisata</title>
+  <title>Blessing Culture</title>
   <link rel="shortcut icon" href="assets/images/logoBC.png" type="image/svg" />
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/css/lineicons.css" />
